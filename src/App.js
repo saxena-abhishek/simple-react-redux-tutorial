@@ -2,35 +2,28 @@ import React, { Component } from 'react';
 import Greeting from "./components/Greeting";
 import ListOfPerson from "./components/ListOfPerson";
 import { connect } from 'react-redux';
-import {addUserName} from "./action";
-
-
-
+import { addUserName } from "./action";
 
 class App extends Component {
 
   constructor(props) {
     super(props);
-    //console.log(props);
     this.state = {
       greetUser: "Abhishek Saxena"
     }
-
-
-
   }
 
   fetchUsername = (props) => {
     this.setState({
       greetUser: props
-    }, function(){
+    }, function () {
       this.props.toggleTodo(this.state.greetUser);
     });
-    
+
   }
 
   render() {
-    console.log("App render method = ", this.props.todos);
+    console.log("test = ", this.props)
     return (
 
 
@@ -39,8 +32,6 @@ class App extends Component {
         <hr />
         <ListOfPerson greetUser={this.props.todos} />
       </div>
-
-
     );
   }
 }
@@ -53,10 +44,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    toggleTodo: (id) => {console.log("id check = ", id); dispatch(addUserName(id)) }
+    toggleTodo: (id) => { console.log("id check = ", id); dispatch(addUserName(id)) }
   }
 }
-
 
 const myApp = connect(
   mapStateToProps,

@@ -11,7 +11,7 @@ import updateUsername from "./reducer";
 const store = createStore(updateUsername);
 ReactDOM.render(
     <Provider store={store}>
-        <App /> 
+        <App />
     </Provider>, document.getElementById('root'));
-    
+
 registerServiceWorker();
